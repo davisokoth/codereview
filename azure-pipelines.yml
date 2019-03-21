@@ -22,8 +22,8 @@ steps:
     displayName: 'npm install'
 
   - script: |
-    npm install
-  displayName: 'npm test'
+      npm install
+    displayName: 'npm test'
 
   - task: PublishTestResults@2
   condition: succeededOrFailed()
