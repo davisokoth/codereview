@@ -26,10 +26,10 @@ steps:
     displayName: 'npm test'
 
   - task: PublishTestResults@2
-  condition: succeededOrFailed()
-  inputs:
-    testRunner: JUnit
-    testResultsFiles: '**/test-coverage/TEST-RESULTS.xml'
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: '**/test-coverage/TEST-RESULTS.xml'
 
   - task: PublishCodeCoverageResults@1
     inputs: 
@@ -47,4 +47,4 @@ steps:
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(System.DefaultWorkingDirectory)'
-      name: 'drop'
+    displayName: 'drop'
