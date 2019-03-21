@@ -1,5 +1,17 @@
 # Build NodeJS Express app using Azure Pipelines
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript?view=vsts
+
+# The build Azure Pipeline will be automatically triggered from changes pushed to the GitHub repository.
+# The build pipeline will have the following steps:
+
+# 1. Build the solution
+# 2. Run unit tests
+# 3. Publish test results
+# 4. Package the Function App
+# 5. Publish the packaged Function App as a build artifact
+# 6. Copy the functional end-to-end tests
+# 7. Publish the functional end-to-end tests as a separate build artifact
+
 pool:
   vmImage: 'Ubuntu 16.04'
   
@@ -8,6 +20,22 @@ steps:
   - script: |
       npm install
     displayName: 'npm install'
+
+  - script: |
+    npm install
+  displayName: 'npm test'
+
+  - task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: '**/test-coverage/TEST-RESULTS.xml'
+
+  - task: PublishCodeCoverageResults@1
+    inputs: 
+      codeCoverageTool: Cobertura
+      summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+      reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 
   - task: ArchiveFiles@2
     displayName: "Archive files"

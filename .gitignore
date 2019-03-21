@@ -88,3 +88,8 @@ local.settings.json
 # TypeScript output
 dist
 out
+notes
+.vscode
+*.xml
+test-coverage
+.test_output
