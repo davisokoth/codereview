@@ -1,4 +1,12 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
-  "proxies": {}
+  "proxies": {
+      "proxy1": {
+          "matchCondition": {
+              "methods": [ "POST" ],
+              "route": "/api/{test}"
+          },
+          "backendUri": "https://jawuothpolopiach.azurewebsites.net/api/CreateUser"
+      }
+  }
 }
