@@ -4,9 +4,9 @@
       "proxy1": {
           "matchCondition": {
               "methods": [ "POST" ],
-              "route": "/api/{test}"
+              "route": "/api/newuser"
           },
-          "backendUri": "https://jawuothpolopiach.azurewebsites.net/api/CreateUser"
+          "backendUri": "https://jawuothpolopiach.azurewebsites.net/api/CreateProfile"
       }
   }
 }
