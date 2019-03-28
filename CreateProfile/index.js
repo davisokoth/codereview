@@ -11,8 +11,8 @@ module.exports = async function (context, req) {
     // if (req.body && req.body.name && req.body.email && req.body.id) {
     if (req) {
         const cypher = "CREATE (p:Person {name: {name}, emial: {email}, id: {id}}) RETURN count(p) AS count";
-        // const params = { name: req.body.name, email: req.body.email, id: req.body.id};
-        const params = { name: 'dpapa', email: 'davisokoth@gmail.com', id: 'lulusmo-09090-sdeo'};
+        const params = { name: req.body.name, email: req.body.email, id: req.body.id};
+        // const params = { name: 'dpapa', email: 'davisokoth@gmail.com', id: 'lulusmo-09090-sdeo'};
         session.run(cypher, params).then(result => {
             context.res = {
                 status: 200,
