@@ -93,3 +93,5 @@ notes
 *.xml
 test-coverage
 .test_output
+*.js
+.js.map
