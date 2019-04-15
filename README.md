@@ -1,7 +1,7 @@
-# getgit
+# YouCode
 [![Build Status](https://travis-ci.com/davisokoth/youcode.svg?branch=master)](https://travis-ci.com/davisokoth/youcode)
 
-
+After the bootcamps and tutorials comes YouCode. Let's go
 
 ## Technologies
 * Serverless

@@ -22,8 +22,8 @@ steps:
     displayName: 'yarn install'
 
   - script: |
-      yarn install
-    displayName: 'npm test'
+      yarn test
+    displayName: 'yarn test'
 
   - task: PublishTestResults@2
     condition: succeededOrFailed()

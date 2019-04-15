@@ -17,9 +17,6 @@
     }
   },
   "scripts": {
-    "cpconfigs": "copyfiles -u 1 $npm_package_config_azureFunctions_srcDir/**/*.json $npm_package_config_azureFunctions_srcDir/*.json $npm_package_config_azureFunctions_buildDir && copyfiles package.json $npm_package_config_azureFunctions_buildDir",
-    "cpfunctions": "mv $npm_package_config_azureFunctions_outHandlersDir/* $npm_package_config_azureFunctions_buildDir/",
-    "cpfiles": "yarn cpconfigs && yarn cpfunctions",
     "build": "node_modules/typescript/bin/tsc",
     "watch": "node_modules/typescript/bin/tsc -w",
     "prestart": "yarn build && func extensions install",
@@ -62,19 +59,19 @@
       "html",
       "xml"
     ],
-    "report-dir": "./coverage",
-    "jest": {
-      "coverageReporters": [
-        "text"
-      ],
-      "reporters": [
-        "default",
-        "jest-junit"
-      ]
-    },
-    "jest-junit": {
-      "output": "coverage/junit/junit.xml",
-      "usePathForSuiteName": "true"
-    }
+    "report-dir": "./coverage"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "output": "coverage/junit/junit.xml",
+    "usePathForSuiteName": "true"
   }
 }
