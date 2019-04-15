@@ -25,6 +25,10 @@ steps:
       yarn test
     displayName: 'yarn test'
 
+  - script: |
+      yarn build
+    displayName: 'yarn build'
+
   - task: PublishTestResults@2
     condition: succeededOrFailed()
     inputs:
