@@ -13,7 +13,8 @@ class NewUser {
     const userId = req.body.id;
     const name = req.body.name;
     const email = req.body.email;
-    const user = new UserModel(userId, name, email);
+    const avatar_url = req.body.avatar_url;
+    const user = new UserModel(userId, name, email, avatar_url);
     const userRes = await this.userHelper.addUser(user);
 
     context.res = {
