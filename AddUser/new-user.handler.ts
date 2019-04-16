@@ -10,9 +10,9 @@ class NewUser {
   index = async (context: Context, req: HttpRequest): Promise<void> => {
     context.log("JavaScript HTTP trigger function processed a request.");
 
-    const userId = req.query.userId;
-    const name = req.query.name;
-    const email = req.query.email;
+    const userId = req.body.id;
+    const name = req.body.name;
+    const email = req.body.email;
     const user = new UserModel(userId, name, email);
     const userRes = await this.userHelper.addUser(user);
 
