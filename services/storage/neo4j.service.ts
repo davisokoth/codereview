@@ -49,6 +49,21 @@ class Neo4JService {
         })
         .then(() => session.close());
     };
+
+    queryEntities<T>(TableName: string, model: T, callback:Function) {
+        const session = this.getConnection(); 
+        const cypher = 'MATCH (p: ' + TableName + '{' + JSON.stringify(model) + '}) RETURN p';
+        const params = {TableName, model};
+        session.run(cypher, params)
+        .then(result => {
+            const entities = [];
+            result.records.map(record => {
+                entities.push(record._fields[0].properties);
+            })
+            callback(entities);
+        })
+        .then(() => session.close());
+    };
 }
 
 export {Neo4JService};

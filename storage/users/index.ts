@@ -1,2 +1,2 @@
 export { UserHelper, IUserHelper } from './user.helper';
-export { UserModel } from './user.model';
+export { UserModel, LoginModel } from './user.model';

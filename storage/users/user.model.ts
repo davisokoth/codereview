@@ -21,5 +21,17 @@ class UserModel {
       this.profile = profile;
     }
 }
+
+class LoginModel {
+  email: string;
+  password: string;
   
-export { UserModel };
+  static tableName: string = 'Users';
+
+  constructor(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+  }
+}
+  
+export { UserModel, LoginModel };
